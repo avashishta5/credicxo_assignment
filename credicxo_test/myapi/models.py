@@ -2,7 +2,7 @@ from django.db import models
 from django.conf import settings
 
 # Create your models here.
-class Student(model.Model):
+class Student(models.Model):
 	YEARS = (
 		('I', 'First'),
 		('II', 'Second'),
@@ -24,7 +24,7 @@ class Student(model.Model):
 	def __str__(self):
 		return self.name
 
-class Teacher(model.Model):
+class Teacher(models.Model):
 	name = models.CharField(max_length=100)
 	dob = models.DateField()
 	branch = models.CharField(max_length=3, choices=settings.BRANCHES)

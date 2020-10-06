@@ -7,5 +7,9 @@ from .models import Student, Teacher
 
 # Create your views here.
 class StudentViewSet(viewsets.ModelViewSet):
-	queryset = Hero.objects.all().order_by('registration_no')
+	queryset = Student.objects.all().order_by('name')
 	serializer_class = StudentSerializer
+
+class TeacherViewSet(viewsets.ModelViewSet):
+	queryset = Teacher.objects.all().order_by('name')
+	serializer_class = TeacherSerializer
