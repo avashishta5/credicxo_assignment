@@ -2,6 +2,9 @@ from django.db import models
 from django.db.models.signals import post_save
 from django.dispatch import receiver
 from django.conf import settings
+from django.contrib.auth.models import AbstractUser
+
+from .managers import CustomUserManager
 
 class Student(models.Model):
 	YEARS = (
@@ -45,3 +48,15 @@ def update_teacher_reg_no(sender, instance, created, **kwargs):
 	if created:
 		instance.registration_no = "T%05d" % instance.id
 		instance.save()
+
+class CustomUser(AbstractUser):
+	username = models.CharField(max_length=50, unique=True)
+	email = None
+
+	USERNAME_FIELD = 'username'
+	REQUIRED_FIELDS = []
+
+	objects = CustomUserManager()
+
+	def __str__(self):
+		return self.username

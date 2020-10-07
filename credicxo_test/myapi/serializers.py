@@ -1,5 +1,6 @@
 from rest_framework import serializers
-from .models import Student, Teacher
+from django.contrib.auth.models import Group
+from .models import Student, Teacher, CustomUser
 
 
 class StudentSerializer(serializers.HyperlinkedModelSerializer):
@@ -21,3 +22,13 @@ class TeacherSerializer(serializers.HyperlinkedModelSerializer):
 
 	def create(self, validated_data):
 		return Teacher.objects.create(**validated_data)
+
+class UserSerializer(serializers.HyperlinkedModelSerializer):
+	class Meta:
+		model = CustomUser
+		fields = ("url", "id", "username")
+
+class GroupSerializer(serializers.HyperlinkedModelSerializer):
+	class Meta:
+		model = Group
+		fields = ("url", "name")
