@@ -26,7 +26,7 @@ class TeacherSerializer(serializers.HyperlinkedModelSerializer):
 class UserSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:
 		model = CustomUser
-		fields = ("url", "id", "username")
+		fields = ("id", "username")
 
 class GroupSerializer(serializers.HyperlinkedModelSerializer):
 	class Meta:

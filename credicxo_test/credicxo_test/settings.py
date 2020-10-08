@@ -193,7 +193,7 @@ JWT_AUTH = {
 
 }
 
-# allauth settings
+# allauth + rest_auth settings
 ACCOUNT_USER_MODEL_USERNAME_FIELD = 'username'
 ACCOUNT_USERNAME_REQUIRED = True
 ACCOUNT_AUTHENTICATION_METHOD = 'username'
@@ -203,3 +203,5 @@ SITE_ID = 1
 REST_AUTH_SERIALIZERS = {
     'USER_DETAILS_SERIALIZER': 'myapi.serializers.UserSerializer',
 }
+
+REST_USE_JWT = True
