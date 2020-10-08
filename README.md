@@ -50,6 +50,14 @@ To view data,
 
 The views are implemented using viewsets and thus all routes for all verbs are auto-generated, and can be accessed using the browseable API. To delete or update individual entries, simply visit the link of the entry `localhost:8000/<teachers or students>/<id>`. The can alse be obtained by making a GET request to the main `/teachers/` or `/students/` endpoints as the serializer extends a `HyperlinkedModelSerializer`. 
 
+### Adding users to groups
+```
+$ python3 manage.py shell
+>> from django.contrib.auth.models import Group
+>> group = Group.objects.get(name='<Teacher/Student/Admin>')
+>> group.user_set.add(<username>)
+```
+
 ## TODO
 - Groups have not been implemented programmatically, only via the Admin Panel.
 - CustomUser model needs to be modified to reflect the 3 classes of users based on groups.
