@@ -28,9 +28,9 @@ DEBUG = True
 
 ALLOWED_HOSTS = []
 
-DBNAME = 'arnav'
-DBUSER = 'arnav'
-DBPASS = '1234'
+DBNAME = ''
+DBUSER = ''
+DBPASS = ''
 
 AUTH_USER_MODEL = 'myapi.CustomUser'
 
